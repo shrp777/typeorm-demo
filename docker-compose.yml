@@ -1,0 +1,51 @@
+name: demo
+services:
+  app:
+    container_name: app
+    build:
+      context: app
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    volumes:
+      - ./app:/app
+    networks:
+      - shrp
+  mariadb:
+    image: mariadb
+    container_name: mariadb
+    ports:
+      - 3306:3306
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    env_file:
+      - mariadb/.env
+    volumes:
+      - mariadb_data:/var/lib/mysql
+    restart: unless-stopped
+    networks:
+      - shrp
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - 8080:8080
+    depends_on:
+      - mariadb
+    restart: unless-stopped
+    networks:
+      - shrp
+
+networks:
+  shrp:
+    driver: bridge
+
+volumes:
+  mariadb_data:
