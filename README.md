@@ -2,14 +2,14 @@
 
 ## Endpoints de l'API
 
-- Home : <HTTP GET <http://localhost:3000>
-- Read Pizzas : <HTTP GET <http://localhost:3000/pizzas>
-- Read Pizza by id : <HTTP GET <http://localhost:3000/pizzas/{id}>
-- Read Pizza by id + Pizza's Category : <HTTP GET <http://localhost:3000/pizzas/{id}/category>
+- Home : HTTP GET <http://localhost:3000>
+- Read Pizzas : HTTP GET <http://localhost:3000/pizzas>
+- Read Pizza by id : HTTP GET <http://localhost:3000/pizzas/{id}>
+- Read Pizza by id + Pizza's Category : HTTP GET <http://localhost:3000/pizzas/{id}/category>
 
-- Read Categories : <HTTP GET <http://localhost:3000/categories>
-- Read Category by id : <HTTP GET <http://localhost:3000/categories/{id}>
-- Read Category by id + Pizzas : <HTTP GET <http://localhost:3000/categories/{id}/pizzas>
+- Read Categories : HTTP GET <http://localhost:3000/categories>
+- Read Category by id : HTTP GET <http://localhost:3000/categories/{id}>
+- Read Category by id + Pizzas : HTTP GET <http://localhost:3000/categories/{id}/pizzas>
 
 ## Commandes Docker utiles
 
@@ -40,13 +40,13 @@ docker compose down -v
 
 ## Base de données
 
-- 1. : démarrer les services Docker dans un premier terminal
+- Démarrer les services Docker dans un premier terminal
 
 ```bash
 docker compose up
 ```
 
-- 1. : exécuter cette commande dans un second terminal (les services Docker doivent être démarrés)
+- Exécuter cette commande dans un second terminal (les services Docker doivent être démarrés)
 
 ```bash
 docker exec -ti app bun run seed 
