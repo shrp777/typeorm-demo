@@ -1,4 +1,4 @@
-# Démo Bun + TypeORM + Docker
+# Démo TypeORM + Bun + MariaDB + Docker
 
 ## Endpoints de l'API
 
